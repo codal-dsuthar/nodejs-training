@@ -42,18 +42,18 @@ export const logger = createLogger({
     // Error logs to file (production)
     ...(config.NODE_ENV === 'production'
       ? [
-          new transports.File({
-            filename: 'logs/error.log',
-            level: 'error',
-            maxsize: 5242880, // 5MB
-            maxFiles: 5
-          }),
-          new transports.File({
-            filename: 'logs/combined.log',
-            maxsize: 5242880, // 5MB
-            maxFiles: 5
-          })
-        ]
+        new transports.File({
+          filename: 'logs/error.log',
+          level: 'error',
+          maxsize: 5242880, // 5MB
+          maxFiles: 5
+        }),
+        new transports.File({
+          filename: 'logs/combined.log',
+          maxsize: 5242880, // 5MB
+          maxFiles: 5
+        })
+      ]
       : [])
   ],
 

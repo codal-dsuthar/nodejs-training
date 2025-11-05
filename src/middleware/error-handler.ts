@@ -57,57 +57,57 @@ export function errorHandler(
   // Fastify specific errors
   if ('statusCode' in err) {
     switch (err.statusCode) {
-      case 400:
-        return reply.code(400).send({
-          error: 'Bad Request',
-          message: err.message
-        });
+    case 400:
+      return reply.code(400).send({
+        error: 'Bad Request',
+        message: err.message
+      });
 
-      case 401:
-        return reply.code(401).send({
-          error: 'Unauthorized',
-          message: err.message || 'Authentication required'
-        });
+    case 401:
+      return reply.code(401).send({
+        error: 'Unauthorized',
+        message: err.message || 'Authentication required'
+      });
 
-      case 403:
-        return reply.code(403).send({
-          error: 'Forbidden',
-          message: err.message || 'Access denied'
-        });
+    case 403:
+      return reply.code(403).send({
+        error: 'Forbidden',
+        message: err.message || 'Access denied'
+      });
 
-      case 404:
-        return reply.code(404).send({
-          error: 'Not Found',
-          message: err.message || 'Resource not found'
-        });
+    case 404:
+      return reply.code(404).send({
+        error: 'Not Found',
+        message: err.message || 'Resource not found'
+      });
 
-      case 409:
-        return reply.code(409).send({
-          error: 'Conflict',
-          message: err.message || 'Resource conflict'
-        });
+    case 409:
+      return reply.code(409).send({
+        error: 'Conflict',
+        message: err.message || 'Resource conflict'
+      });
 
-      case 422:
-        return reply.code(422).send({
-          error: 'Unprocessable Entity',
-          message: err.message || 'Request could not be processed'
-        });
+    case 422:
+      return reply.code(422).send({
+        error: 'Unprocessable Entity',
+        message: err.message || 'Request could not be processed'
+      });
 
-      case 429:
-        return reply.code(429).send({
-          error: 'Too Many Requests',
-          message: err.message || 'Rate limit exceeded'
-        });
+    case 429:
+      return reply.code(429).send({
+        error: 'Too Many Requests',
+        message: err.message || 'Rate limit exceeded'
+      });
 
-      case 500:
-      default:
-        return reply.code(err.statusCode || 500).send({
-          error: 'Internal Server Error',
-          message:
+    case 500:
+    default:
+      return reply.code(err.statusCode || 500).send({
+        error: 'Internal Server Error',
+        message:
             config.NODE_ENV === 'production'
               ? 'Something went wrong'
               : err.message || 'Internal server error'
-        });
+      });
     }
   }
 
