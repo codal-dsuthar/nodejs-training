@@ -31,7 +31,7 @@ export async function healthRoutes(app: FastifyInstance) {
       return {
         status: 'ok',
         timestamp: new Date().toISOString(),
-        uptime: Math.floor(uptime),
+        uptime: Math.round(uptime * 100) / 100, // Round to 2 decimal places
         version: process.env.npm_package_version || '1.0.0',
         environment: process.env.NODE_ENV || 'development'
       };
@@ -98,7 +98,7 @@ export async function healthRoutes(app: FastifyInstance) {
       return {
         status: 'ok',
         timestamp: new Date().toISOString(),
-        uptime: Math.floor(uptime),
+        uptime: Math.round(uptime * 100) / 100, // Round to 2 decimal places
         version: process.env.npm_package_version || '1.0.0',
         environment: process.env.NODE_ENV || 'development',
         database: {
