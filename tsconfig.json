@@ -33,14 +33,12 @@
   },
   "include": [
     "src/**/*",
-    "prisma/**/*"
+    "prisma/**/*",
+    "tests/**/*"
   ],
   "exclude": [
     "node_modules",
-    "dist",
-    "tests",
-    "**/*.test.ts",
-    "**/*.spec.ts"
+    "dist"
   ],
   "ts-node": {
     "require": ["tsconfig-paths/register"],

@@ -16,7 +16,9 @@ module.exports = [
       parserOptions: {
         ecmaVersion: 2023,
         sourceType: "module",
-        project: "./tsconfig.json",
+          // Use a dedicated tsconfig for ESLint so tests and other tooling are included
+          // Resolve to an absolute path to avoid relative-resolve errors
+          project: require('path').resolve(__dirname, './tsconfig.eslint.json'),
       },
     },
     plugins: {
